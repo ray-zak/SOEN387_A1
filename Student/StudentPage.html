@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Student Page </title>
+</head>
+<body>
+<h2> Student Page </h2>
+
+<div>
+  <h4> Register in a course </h4>
+
+    <form method="post" action="CoursesPage.php">
+        <label> Student ID:
+        <input type="number" name="StudentID" placeholder="Student ID"/>
+        </label>
+        <br/>
+        <label> Choose a term:
+            <select name="select">
+                <option selected="selected">*</option>
+                <option name="fall" value="fall"> Fall Term </option>
+                <option name="winter" value="winter"> Winter Term </option>
+                <option name="summer" value= "summer"> Summer Term </option>
+            </select>
+        </label>
+        <br/>
+        <input type="submit" value="see available Courses">
+    </form>
+
+</div>
+
+<div>
+  <h4> Drop a course </h4>
+</div>
+
+</body>
+</html>
