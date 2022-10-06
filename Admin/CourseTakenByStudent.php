@@ -14,19 +14,19 @@ echo "Connected successfully";
 
 $studentList=[];
 $query_get_students = "select * from Assignment1.Student";
-echo $query_get_students ;
+
 $result = mysqli_query($conn,$query_get_students);
 $soms = mysqli_fetch_all($result);
 $i=0;
 foreach($soms as $som){
   $studentList[$i]=$som[0];
   $i++;
- echo $som[0];
+ 
 
 
 }
 
-    echo '<pre>'; print_r($StudentList); echo '</pre>';
+   
 
 
     
@@ -53,23 +53,23 @@ if($_POST['student']){
 
 $courseList=[];
 $query_get_courses = "select CourseCode from Assignment1.RegisteredIn where StudentID='".$_POST['student']."'";
-echo $query_get_courses ;
+
 $result = mysqli_query($conn,$query_get_courses);
 $poms = mysqli_fetch_all($result);
 $i=0;
 foreach($poms as $som){
   $courseList[$i]=$som[0];
   $i++;
+// output are the report are printed here 
  echo $som[0];
+ echo '<br>';
 
 
 
 }
 
 
-echo '<pre>'; print_r($courseList); echo '</pre>';
 
-echo $_POST['course'];
 
 }
 
