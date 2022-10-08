@@ -62,3 +62,4 @@ echo ("Title: " . $_POST['Title'] . "<br />\n");
    <input type="submit" name="submit" value="Submit" />
 </form>
 
+<a href="./AdminPage.html"> Back to Admin page </a>

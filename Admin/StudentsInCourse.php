@@ -77,5 +77,5 @@ foreach($poms as $som){
 ?>
 
 
-
+<a href="./AdminPage.html"> Back to Admin page </a>
 
