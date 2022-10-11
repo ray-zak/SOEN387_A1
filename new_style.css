@@ -1,0 +1,37 @@
+.button-link {
+  padding: 10px 20px;
+  background-color: white;
+  color: #eee;
+}
+
+.btn1{
+   margin-right: 50px;
+    background: white;
+
+}
+
+.navbar{
+    background: brown;
+    
+    
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-image: linear-gradient(to bottom, transparent, white), url('img/image.jpg');
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

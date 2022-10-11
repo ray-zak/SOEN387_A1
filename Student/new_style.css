@@ -1,0 +1,23 @@
+.container{
+    
+    background-color: brown;
+    color:white;
+    max-width: 400px;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-image: linear-gradient(to bottom, transparent, white), url('/SOEN387_A1/img/image.jpg');
+    
+}
+
+
+.navbar{
+    background: brown;
+    
+    
+}
+
+
+

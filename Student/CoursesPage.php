@@ -1,4 +1,14 @@
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Student Page </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="new_style.css">
+    
 <script>
     coursearray =[];
 
@@ -29,6 +39,7 @@
             element.setAttribute('name',"course"+coursearray.length);
             element.setAttribute('value',coursecode);
             element.setAttribute('readonly', 'true');
+            element.setAttribute('class','form-control')
             document.getElementById("courseList").appendChild(element);
 
             const submit_btn = document.createElement("input");
@@ -61,32 +72,33 @@
     }
 
 </script>
+</head>
+<body>
+    
 
-
-
-<style>
-    .table{
-        border-style: solid;
-        border-width: medium;
-        border-color: black;
-    }
-    td{
-        border-style: inset;
-
-    }
-    button{
-        cursor: pointer;
-    }
-
-
-</style>
-
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand"> <h2>Welcome To Concordia</h2></a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="StudentPage.html">Student Page</a>
+      </li>
+    </ul>
+  
+  </div>
+</nav>
+    
+    
 
 
 <?php
-$servername = "127.0.0.1:3308";
+$servername = "127.0.0.1:3306";
 $username = "root";
 $password = "";
+
 
 
 
@@ -96,10 +108,10 @@ $conn = new mysqli($servername, $username, $password);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+ 
+    
+    
 }
-
-echo "Connected successfully";
-
 
 extract($_POST);
 
@@ -115,8 +127,6 @@ if($existing_Student->num_rows ==0){
 }
 else {
 
-    echo $select;
-
     $query_get_courses = "select* from Assignment1.Course where Semester = '$select'";
 
     //$result = $conn->query($query_get_courses);
@@ -125,15 +135,14 @@ else {
 //        echo $row['CourseCode'];
 //    }
 
-
-
+  
     if ($result->num_rows > 0) {
         // output data of each row
         echo "<br/> <br/>";
-        echo "<div>";
-        echo "<h2> the list below is the list of the courses will be given in for the chosen semester </h2>";
-
-        echo"<table class='table'>";
+        echo "<div class='py-3'>"; 
+        echo "<div class='row justify-content-center'>";
+        echo "<div class='col-auto'>";
+        echo"<table class='table table-bordered table-secondary table-sm '>";
         echo "<tr>";
         echo "<th> Course Code </th>";
         echo "<th> Title </th>";
@@ -158,25 +167,37 @@ else {
 
 
             echo "<td> <button id='add.$courseCode.' onclick=add_course('.$courseCode.')> Add </button> </td>";
+            
             echo "<td> <button disabled id='remove.$courseCode.' onclick=Remove_course('.$courseCode.')> Remove </button> </td>";
 
             echo "</tr>";
 
         }
         echo "</table>";
+        echo "</div>";
+        echo"</div>";
 
 
         echo "<br/> <br/>";
         // added courses
-
+        
+        echo " <div class='row justify-content-center my-5'>";
+        echo "<div class='col-lg-6'>";
         echo "<form style='display: flex; flex-flow: column nowrap' id='courseList' method='post' action='Registeration.php'>";
-        echo "<label> Student ID: ";
-        echo "<input type='text'readonly value='$StudentID' , id='studentid' name='studentid'> </input> ";
+        echo "<label class='form-label'> Student ID: ";
         echo "</label>";
-        echo "<label> Number of courses added";
-        echo "<input type='text'readonly value='0' , id='numofcourses' name='numofcourses'> </input> ";
+        echo "<input type='text'readonly value='$StudentID' , id='studentid' name='studentid' class='form-control'> </input> ";
+        
+        echo "<label class='form-label'> Number of courses added";
         echo "</label>";
+        echo "<input type='text'readonly value='0' , id='numofcourses' name='numofcourses' class='form-control'> </input> ";
+        
+        echo " <br/>";
+        
         echo "</form>";
+        
+        echo "</div>";
+        echo "</div>";
         echo "</div>";
 
 
@@ -189,3 +210,7 @@ else {
 
 }
 ?>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
