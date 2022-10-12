@@ -21,16 +21,27 @@ echo "Connected successfully";
 $InsertIntoCourse="INSERT INTO Assignment1.Administrator (EmployementID,FirstName,LastName,DOB,Email,Address,Phone) VALUES('".$_POST['EmployementID']."','".$_POST['FirstName']."','".$_POST['LastName']."','".$_POST['DOB']."','".$_POST['Email']."','".$_POST['Address']."','".$_POST['Phone']."')";
 echo $InsertIntoCourse;
     //$result = $conn->query($query_get_courses);
-mysqli_query($conn,$InsertIntoCourse);
+$result = mysqli_query($conn,$InsertIntoCourse);
+    if(!$result){
+        die("Error. something wrong");
+    }
+    else{
+        echo "<h5 style='color: green'> You have successfully registered. You will be redirected to the login page very shortly</h5>";
 
+
+        echo "<script> 
+             setTimeout(()=>{ window.location = './Adminlogin.php' },2000); 
+          </script>";
+
+    }
 
 }
 
-echo '<h2>create A new course</h2>';
-
-
-echo ("Course Code: " . $_POST['courseCode'] . "<br />\n");
-echo ("Title: " . $_POST['Title'] . "<br />\n");
+//echo '<h2>create A new course</h2>';
+//
+//
+//echo ("Course Code: " . $_POST['courseCode'] . "<br />\n");
+//echo ("Title: " . $_POST['Title'] . "<br />\n");
 
 
 
@@ -60,4 +71,4 @@ echo ("Title: " . $_POST['Title'] . "<br />\n");
    <input type="submit" name="submit" value="Submit" />
 </form>
 
-<a href="./Adminlogin.html"> login </a>
+<a href="./Adminlogin.php"> login </a>

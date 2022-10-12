@@ -14,15 +14,25 @@ if(@$_POST['CourseCode']){
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-else
-echo "Connected successfully";
+else{
+    echo "Connected successfully";
+
+}
 //$InsertIntoCourse = "INSERT INTO Assignment1.Course (CourseCode,Title,Semester,days,Time,instructor,room,StartDate,EndDate)VALUES ('".$_POST['CourseCode']."',".$_POST['Title'].",".$_POST['Semester'].",".$_POST['days'].",".$_POST['Time'].",".$_POST['instructor'].",".$_POST['room'].",".$_POST['StartDate'].",".$_POST['EndDate'].")";
 
 $InsertIntoCourse="INSERT INTO Assignment1.Course (CourseCode,startDate,Time,EndDate,instructor,Semester,days,room,Title) VALUES('".$_POST['CourseCode']."','".$_POST['StartDate']."','".$_POST['Time']."','".$_POST['EndDate']."','".$_POST['instructor']."','".$_POST['Semester']."','".$_POST['days']."','".$_POST['room']."','".$_POST['Title']."')";
-echo $InsertIntoCourse;
+//echo $InsertIntoCourse;
     //$result = $conn->query($query_get_courses);
-mysqli_query($conn,$InsertIntoCourse);
+$result = mysqli_query($conn,$InsertIntoCourse);
+ if(!$result){
+     die("Error");
+ }
+ else{
+     echo "<div  style=' padding: 2% ;margin: 2%;border-style: solid; border-color: darkgreen; background-color: rgba(0,255,0,0.5); font-weight: bold' >";
+     echo  "<h3>".$_POST['CourseCode']." has been added Succefully </h3>";
+     echo "</div>";
 
+ }
 
 }
 
@@ -127,7 +137,7 @@ mysqli_query($conn,$InsertIntoCourse);
                 
                 <div class="form-row">
                     <div class="col-lg-7">
-                        <p class="text-center"><a href="./AdminPage.php" class="text-center"> Back to Admin page </a></p>
+                        <p class="text-center"><a href="./AdminPage.php?verified=12345" class="text-center"> Back to Admin page </a></p>
                  </div>
                 </div>
                  

@@ -63,6 +63,13 @@ $Enrolled_courses= mysqli_query($conn,$courses_registered_by_std);
 
 if($Enrolled_courses->num_rows >0){
 
+    if($Enrolled_courses->num_rows+sizeof($new_courses_added) >5 ){
+
+        die("<div style=' padding: 2% ;margin: 2%;border-style: solid; border-color: darkred; background-color: rgba(255,0,0,0.5); font-weight: bold'>
+                <h2> Error: You cannot register more than 5 courses per semester </h2> 
+                </div>");
+    }
+
     while($row=$Enrolled_courses->fetch_assoc()){
 
         if(in_array($row["CourseCode"],$new_courses_added)){
@@ -131,61 +138,13 @@ for($i=0;$i<sizeof($new_courses_added);$i++){
 }
 
 echo "<hr/>";
-echo "<h3> list of courses you currently Registered in </h3>";
- if($Enrolled_courses->num_rows >0){
 
-     while($row=$Enrolled_courses->fetch_assoc()){
-         echo "<table>";
-         echo "<tr>";
-         echo "</table>";
-     }
-}
 
 
 echo "<a href='StudentPage.html'> Go back to Home page </a>";
 
 
 
-//for($i=1;$i<=$numofcourses;$i++) {
-//
-//    $v = strval("course$i");
-//    //echo $$v;
-//    $x =$$v;
-//    $m = substr($x,1,-1);
-//    $Registeration_query = "insert into Assignment1.RegisteredIn (StudentID, CourseCode) values ( '$studentid' , '$m')";
-//
-//    $result = mysqli_query($conn,$Registeration_query);
-//    if($result){
-//        echo "there is a data";
-//    }
-//    else{
-//        echo "empty ";
-//    }
-//
-//}
-
-
-
-//$confirmed_courses_query = "select"." CourseCode from Assignment1.RegisteredIn where StudentID ='$studentid' ";
-//
-////$confirmed_courses_query = "select CourseCode from Assignment1.RegisteredIn where StudentID =".$studetnid." ";
-//
-// $confirmed_courses = mysqli_query($conn,$confirmed_courses_query);
-//
-//
-// if($confirmed_courses->num_rows>0){
-//     echo "<br/> <br/>";
-//     echo "<div>";
-//     echo "<h2> Confirmed Courses </h2>";
-//     echo "<ul>";
-//     while($row = $confirmed_courses->fetch_assoc()){
-//         echo "<li>".$row["CourseCode"]."</li>";
-//     }
-//
-//     echo "</ul>";
-//
-// }
-//
 
 
 

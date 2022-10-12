@@ -133,7 +133,7 @@ echo '</div>';
 
 <div class="container mt-3">
     <div class="row justify-content-center p-3">
-        <p class="text-center"><a href="./AdminPage.php">Back To Admin Page</a></p>
+        <p class="text-center"><a href="./AdminPage.php?verified=12345">Back To Admin Page</a></p>
     </div>
 </div>
 

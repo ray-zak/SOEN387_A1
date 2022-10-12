@@ -97,7 +97,7 @@ foreach($soms as $som){
     <?php
 
     // added error suppresion operator so when undefined it is not dipslayed   
-    if(@$_POST['student']){
+    if($_POST['student']){
 
     $courseList=[];
     $query_get_courses = "select CourseCode from Assignment1.RegisteredIn where StudentID='".$_POST['student']."'";
@@ -135,7 +135,7 @@ foreach($soms as $som){
 
 <div class="container">
     <div class="row justify-content-center p-3">
-        <p class="text-center"><a href="./AdminPage.php">Back To Admin Page</a></p>
+        <p class="text-center"><a href="./AdminPage.php?verified=12345">Back To Admin Page</a></p>
     </div>
 </div>
     
