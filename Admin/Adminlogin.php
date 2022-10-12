@@ -9,7 +9,7 @@ $password = "";
 
 
 // Check connection
-if(@$_POST['EmployementID']){
+if($_POST['EmployementID']){
     $conn = new mysqli($servername, $username, $password);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -27,14 +27,14 @@ $poms = mysqli_fetch_all($result);
 
 
 if(sizeof($poms)>0){
-header("Location: ./AdminPage.php", true, 301);
+header("Location: ./AdminPage.php?EID=".$_POST['EmployementID'], true, 301);
 exit();
 header("./AdminPage.php");
 echo "Employement ID EXIST ";
 
 }
 else{
-echo "INVALID Employement ID";
+die ("INVALID Employement ID");
 }
     //$result = $conn->query($query_get_courses);
 
