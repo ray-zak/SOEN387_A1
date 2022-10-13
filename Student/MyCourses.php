@@ -10,6 +10,11 @@
 <script>
     let i =0;
     function select_course(coursecode){
+        
+        const labelElement = document.createElement('LABEL')
+            labelElement.setAttribute('class','form-label');
+            labelElement.innerHTML = "Courses:"
+            document.getElementById("courses_to_drop").appendChild(labelElement);
         i++;
         console.log(coursecode);
         document.getElementById("numofcourses").setAttribute("value", i.toString());
@@ -18,7 +23,9 @@
         element .setAttribute("name" , "course"+i);
         element.setAttribute("value", coursecode);
         element.setAttribute("readonly", "true");
+        element.setAttribute('class','form-control');
         document.getElementById("courses_to_drop").appendChild(element);
+        
 
 
     }
@@ -164,28 +171,37 @@ else{
         echo "<br/> <br/>";
 
         echo "<div> ";
-        echo "<h4> selected courses </h4>";
 //        echo "<label> Number of Courses selected:";
 //        echo "<input id='numofcourses' type='text' name='numofcourses' value='0' readonly='true'> </input>" ;
 //        echo "</label>";
-        echo "<p> Number of Courses selected </p>";
+        echo " <div class='row justify-content-center my-5'>";
+        echo "<div class='col-lg-6'>";
         echo "<form style='display: flex; flex-flow: column nowrap' id='courses_to_drop' method='post' action='Drop.php'>";
+        
+        echo "<label class='form-label'> Number Of Classes to Drop: ";
+        echo "</label>";
         echo "<input id='numofcourses' type='text' name='numofcourses' value='0' readonly='true' class='form-control'> </input>" ;
+       
 
         echo "</form>";
 
-
+        
         echo "<button id='finish_dropping' onclick='submit_form()'> Drop Courses</button>";
         echo "<button id='cancel' onclick='cancel_form()'> Cancel  </button>";
+        
 
+        echo "</div>";
+        echo "</div>";
         echo "</div>";
     }
     else{
         echo "<h2> You have no courses for the selected Semester </h2>";
     }
 
-    echo "<a href='StudentPage.html'> Back to main page  </a>";
-
-
-
 }
+    ?>
+    
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>

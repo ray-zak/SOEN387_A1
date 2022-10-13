@@ -19,13 +19,16 @@
       <li class="nav-item">
         <a class="nav-link" href="../index.html">Home</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./Adminlogin.php">Admin Login</a>
+      </li>
     </ul>
   
   </div>
 </nav>
 <!--    <h4 class="text-center mt-5"> Please select one of the options below. </h4>-->
 <?php
-if (!$_GET['EID'] && !$_GET['verified']){
+if (!@$_GET['EID'] && !$_GET['verified']){
     die("access denied. Invalid Employment ID");
 }
 ?>
@@ -42,11 +45,7 @@ if (!$_GET['EID'] && !$_GET['verified']){
         </div>
     </section>
     
-    <div class="container mt-3">
-    <div class="row justify-content-center p-3">
-        <p class="text-center"><a href="./Adminlogin.php">Back To Admin Login</a></p>
-    </div>
-</div>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

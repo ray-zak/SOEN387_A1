@@ -62,6 +62,12 @@ $result = mysqli_query($conn,$InsertIntoCourse);
       <li class="nav-item">
         <a class="nav-link" href="../index.html">Home</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./Adminlogin.php">Admin Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./AdminPage.php?verified=12345">Admin Page</a>
+      </li>
     </ul>
   
   </div>
@@ -133,12 +139,6 @@ $result = mysqli_query($conn,$InsertIntoCourse);
                     <div class="col-lg-7">
                         <button type="submit" name="submit" value="Submit" class="btn1 mt-3 mb-4">Create Course</button>
                     </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="col-lg-7">
-                        <p class="text-center"><a href="./AdminPage.php?verified=12345" class="text-center"> Back to Admin page </a></p>
-                 </div>
                 </div>
                  
             </form>

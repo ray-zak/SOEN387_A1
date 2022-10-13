@@ -19,5 +19,13 @@ html, body {
     
 }
 
+.row {
+    
+    background: white;
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px grey;
+
+}
+
 
 

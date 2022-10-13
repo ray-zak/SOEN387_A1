@@ -31,7 +31,7 @@
             coursearray.push(coursecode);
             document.getElementById("add"+coursecode).disabled =true;
             document.getElementById("remove"+coursecode).disabled =false;
-
+            
             console.log(coursearray);
             const element = document.createElement("input");
             element.setAttribute("type","text");
