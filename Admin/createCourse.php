@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 else{
-    echo "Connected successfully";
+   // echo "Connected successfully";
 
 }
 //$InsertIntoCourse = "INSERT INTO Assignment1.Course (CourseCode,Title,Semester,days,Time,instructor,room,StartDate,EndDate)VALUES ('".$_POST['CourseCode']."',".$_POST['Title'].",".$_POST['Semester'].",".$_POST['days'].",".$_POST['Time'].",".$_POST['instructor'].",".$_POST['room'].",".$_POST['StartDate'].",".$_POST['EndDate'].")";
@@ -28,9 +28,9 @@ $result = mysqli_query($conn,$InsertIntoCourse);
      die("Error");
  }
  else{
-     echo "<div  style=' padding: 2% ;margin: 2%;border-style: solid; border-color: darkgreen; background-color: rgba(0,255,0,0.5); font-weight: bold' >";
-     echo  "<h3>".$_POST['CourseCode']." has been added Succefully </h3>";
-     echo "</div>";
+     //echo "<div  style=' padding: 2% ;margin: 2%;border-style: solid; border-color: darkgreen; background-color: rgba(0,255,0,0.5); font-weight: bold' >";
+    // echo  "<h3>".$_POST['CourseCode']." has been added Succefully </h3>";
+     //echo "</div>";
 
  }
 
